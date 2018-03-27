@@ -1,0 +1,20 @@
+{
+  "name": "nexter",
+  "version": "1.0.0",
+  "description": "Advanced CSS and Sass CSS Grid course project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankievalentine/nexter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frankievalentine/nexter/issues"
+  },
+  "homepage": "https://github.com/frankievalentine/nexter#readme"
+}

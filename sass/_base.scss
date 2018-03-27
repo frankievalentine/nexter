@@ -33,3 +33,23 @@ body {
     font-weight: 300;
     line-height: 1.6;
 }
+
+.container {
+    display: grid;
+
+    // row by row, from the start think about responsiveness for the specific content
+    // rows carry the height of the content to adapt to the content
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+
+    // 140px = 1140/8 = 142.5
+    // 80px sidebar, 1fr column occupies remaining space, with an 8 column grid style, width of each column to be between the width of their min content and 140px, and 1fr column occupies remaining space
+    // 1fr are in place to center the 8 column grid style, and offer full-bleed sections, if no center is needed you can use margin auto or justify-content
+    // minmax(6rem, 1fr) on the remaining space columns responsive not less than 60px always a margin between content and end of page
+    // unquote used for live sass compiler
+    grid-template-columns: unquote("[sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]");
+
+    & > * {
+        padding: 40px;
+        font-size: 3rem;
+    }
+}

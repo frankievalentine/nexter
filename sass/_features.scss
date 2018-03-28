@@ -1,4 +1,37 @@
 .features {
-    background-color: $color-grey-light-2;
     grid-column: center-start / center-end;
+    margin: 15rem 0;
+
+    // nested grid: select in devtool overlay
+    // rows aren't necessary because they snap to parent rows
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    // RESPONSIVE
+    // width of the tracks should always stay between 250px and 1fr unit, CSS will add as many tracks as needed
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+    // align items is set to stretch by default
+    align-items: start;
+}
+
+.feature {
+    // another nested grid
+    display: grid;
+    // rows not specified because they are just the size of the content
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+    &__icon {
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        // -1 only works with an explicit grid and we didnt define rows
+        grid-row: 1 / span 2;
+        transform: translateY(-1rem);
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
 }

@@ -47,9 +47,4 @@ body {
     // minmax(6rem, 1fr) on the remaining space columns responsive not less than 60px always a margin between content and end of page
     // unquote used for live sass compiler
     grid-template-columns: unquote("[sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]");
-
-    & > * {
-        padding: 40px;
-        font-size: 3rem;
-    }
 }

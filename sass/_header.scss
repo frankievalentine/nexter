@@ -9,14 +9,22 @@
     display: grid;
     // only used 1fr for columns now using for rows to fill up all space available
     // because we defined the 80vh on the parent grid
-    // second row min-content and 3rd 60px
-    grid-template-rows: 1fr min-content 6rem 1fr;
-    // 1 column with max-content
-    grid-template-columns: max-content;
+    // second row min-content and third row minmax 60px or the min-content
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+    // 1 column with minmax where its never more narrow than content
+    grid-template-columns: minmax(min-content, max-content);
     // row gap to add space to rest of rows
     grid-row-gap: 1.5rem;
     // center grid in the parent grid area
     justify-content: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 5rem;
+    }
 
     &__logo {
         height: 3rem;
@@ -52,9 +60,12 @@
         grid-template-columns: repeat(4, 1fr);
         grid-column-gap: 3rem;
         justify-items: center;
+        align-items: center;
 
         img {
-            height: 2.5rem;
+            // height can be 2.5rem or less and 100% or less width
+            max-height: 2.5rem;
+            max-width: 100%;
             filter: brightness(70%);
         }
     }
